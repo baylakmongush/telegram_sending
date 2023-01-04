@@ -9,7 +9,7 @@ message = 'some_message'
 # your phone number
 phone = '+123456789'
 
-# creating a telegram session and assigning
+# creating a telegram session and assigningA
 client = TelegramClient('your_username', api_id, api_hash)
 
 # connecting and building the session

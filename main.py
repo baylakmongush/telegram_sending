@@ -1,15 +1,39 @@
 # importing all required libraries
+import argparse
 import asyncio
 
 from telethon import TelegramClient
 
-api_id = input('Enter your API ID: ')
-api_hash = input('Enter your API Hash: ')
-message = input('Enter your message: ')
-phone = input('Enter your phone number: ')
+# getting all the required parameters
+parser = argparse.ArgumentParser(description='Telegram Message Sender')
+parser.add_argument('-i', '--api_id', help='Telegram API ID', required=True)
+parser.add_argument('-s', '--api_hash', help='Telegram API Hash', required=True)
+parser.add_argument('-m', '--message', help='Message to send', required=True)
+parser.add_argument('-p', '--phone', help='Phone number', required=True)
+parser.add_argument('-u', '--username', help='Telegram username', required=True)
+parser.add_argument('-c', '--username_target', help='Telegram username target', required=True)
+parser.add_argument('-f', '--sending_file', help='File to send', required=True)
+
+args = parser.parse_args()
+
+api_id = args.api_id
+api_hash = args.api_hash
+message = args.message
+phone = args.phone
 
 # creating a telegram session and assigningA
-your_username = input("Enter your Telegram username: ")
+your_username = args.username
+
+# username of the target
+username_target = args.username_target
+# sending message using username
+sending_file = args.sending_file
+
+if api_id is None or api_hash is None or message is None or phone is None or your_username is None or username_target is None or sending_file is None:
+    print('You need to pass your API ID, API Hash, Message, Phone, Username, Username Target and Sending File')
+    print('Usage: python main.py --api_id 12345 --api_hash 0123456789abcdef0123456789abcdef \
+    --message "Hello World" --phone "+123456789" --username "username" --username_target \
+    "username_target" --sending_file "sending_file"')
 
 
 async def telegram_async():
@@ -27,11 +51,6 @@ async def telegram_async():
             await client.sign_in(phone, input('Enter the code: '))
 
         try:
-            # username of the target
-            username_target = input('Enter the username of the person you want to send message to: ')
-            # sending message using username
-            sending_file = input('Enter the location of the file you want to send: ')
-
             # sending message using telegram client
             await client.send_file(username_target, sending_file, caption=message)
         except Exception as e:

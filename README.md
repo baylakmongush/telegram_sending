@@ -13,7 +13,14 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-### 4. Run script
+### 4. Run script with arguments
 ```bash
-python3 main.py
+python3 main.py -i <api_id> -a <api_hash> -p <phone_number> -m <message> -u <username> -c <username_target> -f <sending_file>
 ```
+-i -- api_id from my.telegram.org </br>
+-a -- api_hash from my.telegram.org </br>
+-p -- phone number in international format </br>
+-m -- message for sending </br>
+-u -- your username </br>
+-c -- username target for sending message </br>
+-f -- sending file (optional) </br>

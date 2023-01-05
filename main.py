@@ -21,7 +21,7 @@ api_hash = args.api_hash
 message = args.message
 phone = args.phone
 
-# creating a telegram session and assigningA
+# creating a telegram session and assigning
 your_username = args.username
 
 # username of the target

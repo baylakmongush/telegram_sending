@@ -1,4 +1,6 @@
-# telegram_sending
+# Telegram sending script
+
+#### 🦋 This is a simple script to send a message to friends via Telegram api and python.
 
 ### 1. Register my.telegram.org
 
